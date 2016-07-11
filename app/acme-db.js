@@ -29,14 +29,8 @@ AcmeDb.prototype.deleteEmployee = function(employee){
 	}
 	this.employees.splice(index, index);
 }
-AcmeDb.prototype.getEmployeeByName = function(letter){
-	return this.employees.find(function(employee){
-		return employee.id[0] === letter;
-	});
-}
 AcmeDb.prototype.groupedEmployees = function(){
-	var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('');
-	var groupedEmployeeList = {};
+	var alphabet = 'abcdefghijklmnopqrstuvwxyz'.split(''), groupedEmployeeList = {};
 	for (var i = 0; i < alphabet.length; i++) {
 		this.employees.find(function(employee){
 			if(!groupedEmployeeList[alphabet[i]]){
@@ -47,6 +41,6 @@ AcmeDb.prototype.groupedEmployees = function(){
 			}
 		})
 	}
-	return groupedEmployeeList;
 	// return object with {a: [name, name]}
+	return groupedEmployeeList;
 }
